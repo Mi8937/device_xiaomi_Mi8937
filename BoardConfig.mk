@@ -12,9 +12,10 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
 include device/xiaomi/mithorium-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/Mi8937
+USES_DEVICE_XIAOMI_MI8937 := true
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := mi8937,landtoni,land,santoni,prada,ulova,ulysse,ugglite,ugg,rova,rolex,riva,Mi8937
+TARGET_OTA_ASSERT_DEVICE := mi8937,landtoni,land,santoni,prada,ulova,ulysse,ugglite,ugg,rova,rolex,riva,Mi8937,Mi8937_4_19
 
 # Camera
 MI8937_CAM_USE_RENAMED_BLOBS_L := true
@@ -31,8 +32,13 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_mi8937
 TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_mi8937
 
 # Kernel
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+TARGET_KERNEL_CONFIG := vendor/mi8937_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
+else
 TARGET_KERNEL_CONFIG := mi8937_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
+endif
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -56,4 +62,8 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/biometrics/sepolicy
 
 # Inherit from the proprietary version
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+include vendor/xiaomi/Mi8937_4_19/BoardConfigVendor.mk
+else
 include vendor/xiaomi/Mi8937/BoardConfigVendor.mk
+endif
