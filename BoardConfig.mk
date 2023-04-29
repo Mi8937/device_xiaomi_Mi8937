@@ -33,11 +33,17 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_mi8937
 TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_mi8937
 
 # Kernel
+TARGET_KERNEL_CONFIG := \
+    vendor/msm8937-perf_defconfig \
+    vendor/xiaomi/common.config \
+    vendor/xiaomi/msm8937/common.config \
+    vendor/xiaomi/msm8937/mi8937.config \
+    vendor/xiaomi/feature/android-12.config \
+    vendor/xiaomi/feature/lmkd.config
+
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
-TARGET_KERNEL_CONFIG := vendor/mi8937_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
 else
-TARGET_KERNEL_CONFIG := mi8937_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 endif
 
