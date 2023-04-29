@@ -41,6 +41,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     camera.land \
+    camera.prada \
     camera.ulysse \
     camera.wingtech
 
