@@ -71,6 +71,9 @@ function blob_fixup() {
 	vendor/lib64/libgf_ca.so)
             sed -i 's|/system/etc/firmware|////vendor/firmware/ugg|g' "${2}"
             ;;
+	vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so)
+            "${PATCHELF_0_17_2}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            ;;
         vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
             "${PATCHELF_0_17_2}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
             ;;
