@@ -47,6 +47,10 @@ PRODUCT_PACKAGES += \
     camera.ulysse \
     camera.wingtech
 
+# Dumpstate
+PRODUCT_PACKAGES += \
+    libdumpstate_device
+
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
