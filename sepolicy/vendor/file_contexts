@@ -8,3 +8,6 @@
 # OverlayFS
 /(vendor|system/vendor)/overlayfs/common/etc/data/netmgr_config.xml			u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/overlayfs/[0-9a-z]+/etc/sensors/sensor_def_qcomdev.conf		u:object_r:vendor_configs_file:s0
+
+# Touchscreen
+/sys/devices(/platform)?/soc/78b7000\.i2c/i2c-3/3-[0-9a-f]+(/.*)?	u:object_r:sysfs_mi8937_ts:s0
