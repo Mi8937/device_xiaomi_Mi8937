@@ -66,6 +66,9 @@ function blob_fixup() {
         vendor/lib64/lib_fpc_tac_shared.so)
             patchelf_add_needed "libbinder_shim.so" "${2}
             ;;
+	vendor/lib64/libgf_ca.so)
+            sed -i 's|/system/etc/firmware|////vendor/firmware/ugg|g' "${2}"
+            ;;
         vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
             "${PATCHELF_0_8}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
             ;;
