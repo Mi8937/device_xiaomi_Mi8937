@@ -52,12 +52,14 @@ PRODUCT_PACKAGES += \
     libdumpstate_device
 
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
+ifneq ($(MITHORIUM_INTEGRATE_LINDROID),true)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Use FUSE passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
+endif
 endif
 
 # Fingerprint
