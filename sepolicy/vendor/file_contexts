@@ -5,5 +5,8 @@
 /dev/lirc0	u:object_r:ir_device:s0
 /dev/spidev7.1	u:object_r:ir_device:s0
 
+# OverlayFS
+/(vendor|system/vendor)/bin/overlayfs/[0-9a-z-_]+/mm-qcamera-daemon	u:object_r:mm-qcamerad_exec:s0
+
 # Touchscreen
 /sys/devices(/platform)?/soc/78b7000\.i2c/i2c-3/3-[0-9a-f]+(/.*)?	u:object_r:sysfs_mi8937_ts:s0
