@@ -83,6 +83,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay-service.sysfs
 
+$(call soong_config_set,livedisplay_sysfs,enable_ab,true)
+$(call soong_config_set,livedisplay_sysfs,enable_ce,true)
+$(call soong_config_set,livedisplay_sysfs,enable_re,true)
+
 # Recovery
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/Mi8937/proprietary/vendor/bin/hvdcp_opti:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/hvdcp_opti
