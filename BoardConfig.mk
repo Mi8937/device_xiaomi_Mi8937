@@ -9,7 +9,7 @@ TARGET_USES_MITHORIUM_KERNEL := true
 
 # Partitions
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
+BOARD_VENDORIMAGE_PARTITION_SIZE := 576716800
 
 # Inherit from common mithorium-common
 include device/xiaomi/mithorium-common/BoardConfigCommon.mk
